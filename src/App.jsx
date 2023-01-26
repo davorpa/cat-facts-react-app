@@ -22,11 +22,16 @@ function App() {
       .then(({ url }) => setImageUrl('https://cataas.com' + url))
   }, [fact])
 
+  const handleGetAnotherFactClick = (event) => {
+    getNewRandomFact().then(setFact)
+  }
+
   return (
     <main className="App">
       <header>
         <h1>Cat Facts</h1>
       </header>
+      <button onClick={handleGetAnotherFactClick}>Get another fact</button>
       {fact && <p>{fact}</p>}
       {imageUrl && (
         <img src={imageUrl} alt={`A fancy image with cats saying: ${fact}`} />
