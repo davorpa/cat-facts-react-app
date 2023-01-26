@@ -29,12 +29,19 @@
     "vite": "4.0.4"
   },
   "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
     "extends": [
       "./node_modules/standard/eslintrc.json",
       "./node_modules/eslint-config-standard-jsx/eslintrc.json",
       "./node_modules/eslint-config-standard-react/eslintrc.json",
       "plugin:react/jsx-runtime"
     ],
+    "parserOptions": {
+      "ecmaVersion": "latest"
+    },
     "rules": {
       "jsx-quotes": [
         "error",
