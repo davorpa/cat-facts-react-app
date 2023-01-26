@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { getNewRandomFact } from './services/facts'
 
 import './App.css'
 
@@ -7,9 +8,7 @@ function App() {
   const [imageUrl, setImageUrl] = useState()
 
   useEffect(() => {
-    fetch('https://catfact.ninja/fact')
-      .then((response) => response.json())
-      .then(({ fact }) => setFact(fact))
+    getNewRandomFact().then(setFact)
   }, [])
 
   useEffect(() => {
