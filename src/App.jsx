@@ -14,8 +14,10 @@ function App() {
   useEffect(() => {
     if (!fact) return
 
-    const sayText = fact.split(/\s/g, 4).join(' ') + '...'
-    fetch(`https://cataas.com/cat/says/${sayText}?json=true`)
+    const sayText = fact.split(/\s/g, 5).join(' ') + '...'
+    fetch(
+      `https://cataas.com/cat/says/${encodeURIComponent(sayText)}?json=true`
+    )
       .then((response) => response.json())
       .then(({ url }) => setImageUrl('https://cataas.com' + url))
   }, [fact])
