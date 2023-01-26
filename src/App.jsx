@@ -8,7 +8,7 @@ function App() {
   useEffect(() => {
     fetch('https://catfact.ninja/fact')
       .then((response) => response.json())
-      .then((data) => setFact(data.fact))
+      .then(({ fact }) => setFact(fact))
   }, [])
 
   return (
