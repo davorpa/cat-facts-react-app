@@ -2,16 +2,16 @@ import { FetchError } from '../errors/FetchError'
 
 export function getRandomImageUrlWith(
   { fact, size = 640 } = {},
+  // request options
   { signal } = {}
 ) {
-  const sayText = fact.split(/\s/g, 5).join(' ') + '...'
+  let endpointUrl = 'https://cataas.com/cat'
+  if (fact) {
+    const text = fact.split(' ', 5).join(' ') + '...'
+    endpointUrl += '/says/' + encodeURIComponent(text)
+  }
 
-  return fetch(
-    `https://cataas.com/cat/says/${encodeURIComponent(
-      sayText
-    )}?type=sq&width=${size}&json=true`,
-    { signal }
-  )
+  return fetch(`${endpointUrl}?type=sq&width=${size}&json=true`, { signal })
     .then((response) => {
       if (!response.ok) {
         throw new FetchError({
