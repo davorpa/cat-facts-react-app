@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getNewRandomFact } from './services/facts'
+import { getRandomImageUrlWith } from './services/images'
 
 import './App.css'
 
@@ -13,13 +14,7 @@ function App() {
 
   useEffect(() => {
     if (!fact) return
-
-    const sayText = fact.split(/\s/g, 5).join(' ') + '...'
-    fetch(
-      `https://cataas.com/cat/says/${encodeURIComponent(sayText)}?json=true`
-    )
-      .then((response) => response.json())
-      .then(({ url }) => setImageUrl('https://cataas.com' + url))
+    getRandomImageUrlWith({ fact }).then(setImageUrl)
   }, [fact])
 
   const handleGetAnotherFactClick = (event) => {

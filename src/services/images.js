@@ -1,7 +1,7 @@
 import { FetchError } from '../errors/FetchError'
 
 export function getRandomImageUrlWith(
-  { fact, size = 100 } = {},
+  { fact, size = 640 } = {},
   { signal } = {}
 ) {
   const sayText = fact.split(/\s/g, 5).join(' ') + '...'
@@ -9,7 +9,7 @@ export function getRandomImageUrlWith(
   return fetch(
     `https://cataas.com/cat/says/${encodeURIComponent(
       sayText
-    )}?type=sq&width=640&json=true`,
+    )}?type=sq&width=${size}&json=true`,
     { signal }
   )
     .then((response) => {
