@@ -7,6 +7,8 @@ APIs a usar:
 1. Random facts: [https://catfact.ninja/fact](https://catfact.ninja/fact)
 2. Random image: [https://cataas.com](https://cataas.com)
 
+![screenshot](/src/assets/screenshot.png)
+
 ---
 
 This project was bootstrapped with [Create Vite Project](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) configured with a **React SWC** template:
