@@ -42,10 +42,6 @@
     "parserOptions": {
       "ecmaVersion": "latest"
     },
-    "ignorePatterns": [
-      "dist/**",
-      "dist-ssr/**"
-    ],
     "rules": {
       "jsx-quotes": [
         "error",
@@ -61,6 +57,10 @@
       ]
     }
   },
+  "eslintIgnore": [
+    "dist/**",
+    "dist-ssr/**"
+  ],
   "prettier": {
     "tabWidth": 2,
     "singleQuote": true,
