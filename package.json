@@ -42,6 +42,10 @@
     "parserOptions": {
       "ecmaVersion": "latest"
     },
+    "ignorePatterns": [
+      "dist/**",
+      "dist-ssr/**"
+    ],
     "rules": {
       "jsx-quotes": [
         "error",
